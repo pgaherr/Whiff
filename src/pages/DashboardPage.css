@@ -1,0 +1,109 @@
+.dashboard {
+  padding: 20px 24px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+/* Header */
+.dashboard__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboard__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+}
+
+/* Alert banner */
+.dashboard__alert {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: var(--alert-bg);
+  border: 1.5px solid rgba(239, 68, 68, 0.3);
+  border-radius: var(--radius-lg);
+  animation: pulse-border 2s ease-in-out infinite;
+}
+
+@keyframes pulse-border {
+  0%, 100% { border-color: rgba(239, 68, 68, 0.3); }
+  50% { border-color: rgba(239, 68, 68, 0.6); }
+}
+
+.dashboard__alert-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  background: var(--danger-red);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dashboard__alert-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.dashboard__alert-text strong {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--danger-red);
+}
+
+.dashboard__alert-text span {
+  font-size: 12px;
+  color: var(--danger-red);
+}
+
+/* Sensor cards */
+.dashboard__sensors {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+/* Contacts */
+.dashboard__contacts-label {
+  font-size: 14px;
+  color: var(--grey-800);
+  margin-bottom: -12px;
+}
+
+.dashboard__contacts {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Simulate button */
+.dashboard__simulate-btn {
+  width: 100%;
+  padding: 14px;
+  border: 1.5px solid var(--grey-300);
+  border-radius: var(--radius-md);
+  background: var(--white);
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--grey-800);
+  transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+}
+
+.dashboard__simulate-btn:hover {
+  background: var(--grey-100);
+  border-color: var(--grey-600);
+  transform: translateY(-1px);
+}
+
+.dashboard__simulate-btn:active {
+  transform: translateY(0);
+}

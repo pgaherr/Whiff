@@ -1,0 +1,83 @@
+.history {
+  padding: 20px 24px 24px;
+  max-width: 600px;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.history__title {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--black);
+  margin-bottom: 24px;
+}
+
+/* Date group */
+.history__group {
+  margin-bottom: 24px;
+}
+
+.history__group-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--grey-600);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 12px;
+}
+
+/* Event list */
+.history__list {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+/* Single event row */
+.history__event {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 10px 0;
+  border-bottom: 1px solid var(--grey-100);
+  transition: background var(--transition-fast);
+}
+
+.history__event:last-child {
+  border-bottom: none;
+}
+
+.history__event:hover {
+  background: var(--grey-100);
+  border-radius: var(--radius-sm);
+  padding-left: 8px;
+  padding-right: 8px;
+  margin-left: -8px;
+  margin-right: -8px;
+}
+
+/* Severity dot */
+.history__dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex-shrink: 0;
+  margin-top: 5px;
+}
+
+/* Timestamp */
+.history__time {
+  font-size: 14px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+  color: var(--grey-800);
+  min-width: 46px;
+  flex-shrink: 0;
+}
+
+/* Description */
+.history__text {
+  font-size: 14px;
+  color: var(--grey-800);
+  line-height: 1.4;
+}
