@@ -1,5 +1,5 @@
 .dashboard {
-  padding: 20px 24px 24px;
+  padding: 20px 24px 24px;    /* ADD MORE SPACE IN THE END */
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -205,9 +205,17 @@
 }
 
 @keyframes pulse-call {
-  0% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5); }
-  70% { box-shadow: 0 0 0 12px rgba(239, 68, 68, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0); }
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.5);
+  }
+
+  70% {
+    box-shadow: 0 0 0 12px rgba(239, 68, 68, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0);
+  }
 }
 
 .dashboard__calling-info {
@@ -252,7 +260,7 @@
   margin-bottom: 24px;
 }
 
-.dashboard__contacts-card > div:not(:last-child) {
+.dashboard__contacts-card>div:not(:last-child) {
   border-bottom: 1px solid var(--grey-100);
 }
 
