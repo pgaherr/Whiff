@@ -7,6 +7,16 @@ const SEVERITY = {
   safe: '#166534',
 };
 
+const formatChemicals = (text) => {
+  if (typeof text !== 'string') return text;
+  const parts = text.split(/(CH4|CO2)/);
+  return parts.map((part, i) => {
+    if (part === 'CH4') return <span key={i}>CH<sub>4</sub></span>;
+    if (part === 'CO2') return <span key={i}>CO<sub>2</sub></span>;
+    return part;
+  });
+};
+
 export default function HistoryPage() {
   const { historyItems } = useAlerts();
 
@@ -26,7 +36,7 @@ export default function HistoryPage() {
 
   return (
     <div className="history">
-      <h1 className="history__title">Alert history</h1>
+      <h1 className="history__title">ALERT HISTORY</h1>
 
       {events.map((group) => (
         <section key={group.group} className="history__group">
@@ -41,7 +51,7 @@ export default function HistoryPage() {
                   aria-label={event.severity}
                 />
                 <span className="history__time">{event.time}</span>
-                <span className="history__text">{event.text}</span>
+                <span className="history__text">{formatChemicals(event.text)}</span>
               </div>
             ))}
           </div>

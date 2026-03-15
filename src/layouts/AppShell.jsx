@@ -1,5 +1,4 @@
 import { NavLink, Outlet } from 'react-router-dom';
-import GlobalAlerts from '../components/GlobalAlerts';
 import './AppShell.css';
 
 export default function AppShell() {
@@ -44,7 +43,6 @@ export default function AppShell() {
 
   return (
     <div className="app-shell">
-      <GlobalAlerts />
       <main className="app-shell__content">
         <Outlet />
       </main>

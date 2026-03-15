@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './SettingsPage.css';
 
 const initialToggles = {
@@ -6,16 +7,17 @@ const initialToggles = {
   sound: true,
   sms: true,
   shareLocation: true,
+  callEmergency: true,
 };
 
 const initialThresholds = [
-  { id: 'natural_gas', label: 'Natural gas', value: 500, enabled: true },
-  { id: 'co', label: 'CO', value: 35, enabled: true },
-  { id: 'chlorine', label: 'Chlorine', value: 1.0, enabled: true },
+  { id: 'co', label: <>CO</>, value: 150, enabled: true },
+  { id: 'ch4', label: <>CH<sub>4</sub></>, value: 4000, enabled: true },
+  { id: 'co2', label: <>CO<sub>2</sub></>, value: 5000, enabled: true },
+  { id: 'voc', label: <>VOC</>, value: 0.6, enabled: true }
 ];
 
 const deviceInfo = [
-  { label: 'Watch firmware', value: 'v1.2.0' },
   { label: 'Battery', value: '82%', highlight: true },
 ];
 
@@ -23,6 +25,7 @@ export default function SettingsPage() {
   const [toggles, setToggles] = useState(initialToggles);
   const [thresholds, setThresholds] = useState(initialThresholds);
   const [editingThreshold, setEditingThreshold] = useState(null);
+  const navigate = useNavigate();
 
   const handleToggle = (key) => {
     setToggles((prev) => ({ ...prev, [key]: !prev[key] }));
@@ -45,7 +48,7 @@ export default function SettingsPage() {
 
   return (
     <div className="settings">
-      <h1 className="settings__title">Settings</h1>
+      <h1 className="settings__title">SETTINGS</h1>
 
       {/* Alerts section */}
       <section className="settings__section">
@@ -62,14 +65,19 @@ export default function SettingsPage() {
           onChange={() => handleToggle('sound')}
         />
         <ToggleRow
+          label="Share live location"
+          checked={toggles.shareLocation}
+          onChange={() => handleToggle('shareLocation')}
+        />
+        <ToggleRow
           label="SMS to contacts"
           checked={toggles.sms}
           onChange={() => handleToggle('sms')}
         />
         <ToggleRow
-          label="Share live location"
-          checked={toggles.shareLocation}
-          onChange={() => handleToggle('shareLocation')}
+          label="Automatically call the emergency phone number"
+          checked={toggles.callEmergency}
+          onChange={() => handleToggle('callEmergency')}
         />
       </section>
 
@@ -120,6 +128,14 @@ export default function SettingsPage() {
           </div>
         ))}
       </section>
+
+      {/* Log out */}
+      <button
+        className="settings__logout-btn"
+        onClick={() => navigate('/')}
+      >
+        Log out
+      </button>
 
       {/* Threshold editor modal */}
       {editingThreshold && (

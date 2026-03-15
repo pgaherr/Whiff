@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@600;700;800&display=swap');
 
 /* ===== Design Tokens ===== */
 :root {
@@ -6,7 +7,7 @@
   --danger-red: #EF4444;
   --safe-green: #166534;
   --warning-orange: #D97706;
-  --page-bg: #FAFAFA;
+  --page-bg: linear-gradient(135deg, #e3eef6 0%, #9eb3c3 40%, #a0aefe 100%);
   --alert-bg: #FEF2F2;
   --badge-green-bg: #DCFCE7;
   --badge-grey-bg: #F3F4F6;
@@ -51,8 +52,8 @@ html {
 
 body {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  background-color: var(--page-bg);
-  color: var(--black);
+  background: var(--page-bg);
+  color: var(--white);
   line-height: 1.5;
   min-height: 100vh;
 }

@@ -6,10 +6,13 @@
 }
 
 .settings__title {
-  font-size: 24px;
-  font-weight: 700;
+  font-family: 'Outfit', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
   color: var(--black);
+  text-align: center;
   margin-bottom: 24px;
+  letter-spacing: 1px;
 }
 
 /* Section */
@@ -18,8 +21,8 @@
 }
 
 .settings__section-label {
-  font-size: 13px;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 700;
   color: var(--grey-600);
   text-transform: uppercase;
   letter-spacing: 0.5px;
@@ -52,8 +55,7 @@
 }
 
 .settings__row-value--highlight {
-  color: #22C55E;
-  font-weight: 600;
+  color: var(--black);
 }
 
 /* ===== Toggle switch ===== */
@@ -125,6 +127,32 @@
 .settings__row-value--disabled {
   color: var(--grey-300);
   font-style: italic;
+}
+
+/* Log out button */
+.settings__logout-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 8px;
+  margin-bottom: 24px;
+  border: 1.5px solid var(--danger-red);
+  border-radius: var(--radius-md);
+  background: transparent;
+  color: var(--danger-red);
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.settings__logout-btn:hover {
+  background: var(--danger-red);
+  color: var(--white);
+  transform: translateY(-1px);
+}
+
+.settings__logout-btn:active {
+  transform: translateY(0);
 }
 
 /* ===== Modal ===== */

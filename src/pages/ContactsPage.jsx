@@ -1,18 +1,7 @@
 import { useState } from 'react';
 import ContactTile from '../components/ContactTile';
+import { useAlerts } from '../context/AlertContext';
 import './ContactsPage.css';
-
-const EMERGENCY_NUMBERS = [
-  { region: 'United States / Canada', number: '911' },
-  { region: 'European Union (Spain, France, Germany…)', number: '112' },
-  { region: 'United Kingdom', number: '999' },
-  { region: 'Australia', number: '000' },
-  { region: 'Japan', number: '119' },
-  { region: 'China', number: '120' },
-  { region: 'India', number: '112' },
-  { region: 'Brazil', number: '192' },
-  { region: 'Mexico', number: '911' },
-];
 
 const AVATAR_COLORS = ['#3B82F6', '#22C55E', '#F97316', '#EF4444', '#8B5CF6', '#EC4899', '#14B8A6'];
 
@@ -28,14 +17,13 @@ function getInitials(name) {
 export default function ContactsPage() {
 
   const initialContacts = [
-    { id: 1, name: 'Marie Allard', relationship: 'Mother', initials: 'MA', avatarColor: '#3B82F6', phone: '+1 617-555-0101' },
-    { id: 2, name: 'Jonas Lee', relationship: 'Roommate', initials: 'JL', avatarColor: '#22C55E', phone: '+1 617-555-0202' },
-    { id: 3, name: 'Dr. Kim', relationship: 'Emergency contact', initials: 'DK', avatarColor: '#F97316', phone: '+1 617-555-0303' },
+    { id: 1, name: 'Maria Dawn', relationship: 'Mother', initials: 'MD', avatarColor: '#3B82F6', phone: '+1 617-230-0121' },
+    { id: 2, name: 'Jonas Lee', relationship: 'Roommate', initials: 'JL', avatarColor: '#22C55E', phone: '+1 617-547-0235' },
   ];
 
   const [contacts, setContacts] = useState(initialContacts);
   const [showAddModal, setShowAddModal] = useState(false);
-  const [selectedRegion, setSelectedRegion] = useState(EMERGENCY_NUMBERS[0]);
+  const { selectedRegion, setSelectedRegion, EMERGENCY_NUMBERS } = useAlerts();
   const [newContact, setNewContact] = useState({ name: '', relationship: '', phone: '' });
 
   const addContact = () => {
@@ -63,7 +51,7 @@ export default function ContactsPage() {
         const props = ['name', 'tel'];
         const opts = { multiple: false };
         const importedContacts = await navigator.contacts.select(props, opts);
-        
+
         if (importedContacts && importedContacts.length > 0) {
           const imported = importedContacts[0];
           setNewContact((prev) => ({
@@ -83,7 +71,7 @@ export default function ContactsPage() {
 
   return (
     <div className="contacts-page">
-      <h1 className="contacts-page__title">Contacts</h1>
+      <h1 className="contacts-page__title">EMERGENCY CONTACTS</h1>
 
       {/* Emergency call section */}
       <section className="contacts-page__section">
@@ -186,13 +174,13 @@ export default function ContactsPage() {
             </h3>
 
             {/* Native Contact Picker Button (supported in Chrome Android, always shown for demo) */}
-            <button 
-              type="button" 
-              className="modal__btn" 
+            <button
+              type="button"
+              className="modal__btn"
               onClick={handleImportContact}
-              style={{ 
-                marginBottom: '16px', 
-                background: '#E0E7FF', 
+              style={{
+                marginBottom: '16px',
+                background: '#E0E7FF',
                 color: '#4338CA',
                 display: 'flex',
                 alignItems: 'center',
@@ -201,9 +189,9 @@ export default function ContactsPage() {
               }}
             >
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2" /><circle cx="9" cy="7" r="4" /><path d="M23 21v-2a4 4 0 0 0-3-3.87" /><path d="M16 3.13a4 4 0 0 1 0 7.75" />
               </svg>
-              Import from phone
+              Import from contact list
             </button>
 
             <div className="modal__field">
